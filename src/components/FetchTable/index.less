@@ -1,0 +1,60 @@
+.react-resizable {
+  position: relative;
+}
+
+.react-resizable-handle {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  bottom: 0;
+  right: -5px;
+  cursor: col-resize;
+}
+
+.ant-table-small.ant-table-bordered .ant-table-fixed-right {
+  border-left: 1px solid #e8e8e8 !important;
+}
+
+.table ::selection {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+.table {
+  // border-bottom: 1px solid #e9e9e9;
+  .ant-table-tbody > tr > td {
+    border-top: 1px solid #e8e8e8;
+    border-bottom: none;
+  }
+  .ant-table-tbody > tr:nth-of-type(1) > td{
+    border-top:none;
+  }
+}
+
+.ant-table-fixed-right .ant-table-header {
+  background: none !important;
+}
+
+.recordDidableMinHeight {
+  min-height: 20px;
+  min-width: 1px;
+  display: inline-block;
+}
+
+.table-mini-size .ant-table-tbody > tr > td,
+.table-mini-size .ant-table-tbody > tr > th {
+  padding: 6px !important;
+}
+
+/*针对 safiri chorme 的样式此处为css样式*/
+
+.MacIntel {
+  .table .ant-table-fixed-left .ant-table-body-inner,
+  .table .ant-table-fixed-right .ant-table-body-inner {
+    overflow: hidden !important;
+  }
+  .ant-table-fixed-header .ant-table-scroll .ant-table-header,
+  .ant-table-small>.ant-table-content .ant-table-header {
+    overflow: hidden !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+  }
+}

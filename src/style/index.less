@@ -1,0 +1,113 @@
+@import '~antd/lib/style/themes/default.less';
+@import './_common.less';
+@import './_flex.less';
+@import './_position.less';
+@import './_text.less';
+@import './_font.less';
+@midlle-size : 8px;
+@large-size : 16px;
+@layout-size : 60px;
+@input-width:272px;
+@formItem-line-height:36px;
+// 外边距 
+.mt-8 {
+  margin-top: @midlle-size !important; 
+}
+.mr-8 {
+  margin-right: @midlle-size !important
+}
+.mb-8 {
+  margin-bottom: @midlle-size !important
+}
+.ml-8 {
+  margin-left: @midlle-size !important
+}
+.mt-16 {
+  margin-top: @large-size !important; 
+}
+.mr-16 {
+  margin-right: @large-size !important
+}
+.mb-16 {
+  margin-bottom: @large-size !important; 
+}
+.ml-16 {
+  margin-left: @large-size !important
+}
+// 内填充
+.pt-8 {
+  padding-top: @midlle-size !important; 
+}
+.pr-8 {
+  padding-right: @midlle-size !important
+}
+.pb-8 {
+  padding-bottom: @midlle-size !important
+}
+.pb-60 {
+  padding-bottom: @layout-size !important
+}
+.pl-8 {
+  padding-left: @midlle-size !important
+}
+.pt-16 {
+  padding-top: @large-size !important; 
+}
+.pr-16 {
+  padding-right: @large-size !important
+}
+.pb-16 {
+  padding-bottom: @large-size !important; 
+}
+.pl-16 {
+  padding-left: @large-size !important
+}
+// 满屏
+.full-width {
+  width: 100% !important;
+}
+// h3标题带左侧 边线
+.line-title {
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  &:before {
+    content: '';
+    width: 0;
+    height: 20px;
+    padding-right: 12px;
+    border-left: solid 4px #1885FC;
+  }
+}
+
+/*
+
+@primary-color: @blue-6;
+@info-color: @blue-6;
+@success-color: @green-6;
+@processing-color: @blue-6;
+@error-color: @red-6;
+@highlight-color: @red-6;
+@warning-color: @gold-6;
+@normal-color: #d9d9d9;
+@white: #fff;
+@black: #000;
+
+*/
+
+.text-primary {
+  color:@primary-color;
+}
+.text-warning {
+  color:@warning-color;
+}
+.text-success {
+  color:@success-color;
+}
+.text-error {
+  color:@error-color;
+}
+ .input-remark {
+   width: @input-width !important;
+ }

@@ -1,0 +1,749 @@
+[
+    {
+        "pxh": "1",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "急性心肌梗塞",
+        "code": "jxxjgs",
+        "codeRange": "I21-I22",
+        "rule": "substring({prop}, 1, 3) = 'I21' OR substring({prop}, 1, 3) = 'I22'"
+    },
+    {
+        "pxh": "2",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "充血性心力衰竭",
+        "code": "cxxxlsj",
+        "codeRange": "I50.0",
+        "rule": "substring({prop},1,5)='I50.0'"
+    },
+    {
+        "pxh": "3",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "脑出血",
+        "code": "ncx",
+        "codeRange": "I60-I62",
+        "rule": "substring({prop},1,3)>='I60' and substring({prop},1,3)<='I62'"
+    },
+    {
+        "pxh": "4",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "脑梗塞",
+        "code": "ngs",
+        "codeRange": "I63",
+        "rule": "substring({prop},1,3)='I63'"
+    },
+    {
+        "pxh": "5",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "创伤性颅内损伤",
+        "code": "csxlnss",
+        "codeRange": "S06",
+        "rule": "substring({prop},1,3)='S06'"
+    },
+    {
+        "pxh": "6",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "消化道出血",
+        "code": "xhdcx",
+        "codeRange": "K92.2",
+        "rule": "substring({prop},1,5)='K92.2'"
+    },
+    {
+        "pxh": "7",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "累及身体多个部位的损伤",
+        "code": "ljstdgbwdss",
+        "codeRange": "T00-T07",
+        "rule": "substring({prop},1,3)>='T00' and substring({prop},1,3)<='T07'"
+    },
+    {
+        "pxh": "8",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "肺炎",
+        "code": "fy",
+        "codeRange": "J10.0,J11.0,J12-J16,J18",
+        "rule": "p7>=18 and (substring({prop},1,5)='J10.0' or substring({prop},1,5)='J11.0' or (substring({prop},1,3)>='J12' and substring({prop},1,3)<='J18' "
+    },
+    {
+        "pxh": "9",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "慢性阻塞性肺疾病",
+        "code": "mxzsxfjb",
+        "codeRange": "J44",
+        "rule": "substring({prop},1,3)='J44'"
+    },
+    {
+        "pxh": "11",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "糖尿病伴短期并发症",
+        "code": "tnbbdqbfz",
+        "codeRange": "E10.0-E10.1,E11.0-E11.1,E12.0-E12.1,E13.0-E13.1,E14.0-E14.1",
+        "rule": "substring({prop},1,5) in('E10.0','E10.1','E11.0','E11.1','E12.0','E12.1','E13.0','E13.1','E14.0','E14.1')"
+    },
+    {
+        "pxh": "12",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "糖尿病伴长期并发症",
+        "code": "tnbbzqbfz",
+        "codeRange": "E10.2-E10.8,E11.2-E11.8,E12.2-E12.8,E13.2-E13.8,E14.2-E14.8",
+        "rule": "(substring({prop},1,5)>='E10.2' and substring({prop},1,5)<='E10.8' or substring({prop},1,5)>='E11.2' and substring({prop},1,5)<='E11.8' or substring({prop},1,5)>='E12.2' and substring({prop},1,5)<='E12.8' or substring({prop},1,5)>='E13.2' and substring({prop},1,5)<='E13.8' or substring({prop},1,5)>='E14.2' and substring({prop},1,5)<='E14.8')"
+    },
+    {
+        "pxh": "13",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "糖尿病伴下肢截肢",
+        "code": "tnbbxzjz",
+        "codeRange": "E10-E14,伴手术84.1",
+        "rule": "(substring({prop},1,3)>='E10' and substring({prop},1,3)<='E14' and '84.1' in (substring(p490,1,4),substring(p4911,1,4),substring(p4922,1,4),substring(p4533,1,4),substring(p4544,1,4),substring(p45002,1,4),substring(p45014,1,4),substring(p45026,1,4),substring(p45038,1,4),substring(p45050,1,4)))"
+    },
+    {
+        "pxh": "14",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "结节性甲状腺肿",
+        "code": "jjxjzxz",
+        "codeRange": "E04",
+        "rule": "substring({prop},1,3)='E04'"
+    },
+    {
+        "pxh": "15",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "急性阑尾炎伴弥漫性腹膜炎及脓肿",
+        "code": "jxlwybmmxfmyjnz",
+        "codeRange": "K35.0,K35.1",
+        "rule": "substring({prop},1,5)='K35.0' or substring({prop},1,5)='K35.1'"
+    },
+    {
+        "pxh": "16",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "前列腺增生",
+        "code": "qlxzs",
+        "codeRange": "N40",
+        "rule": "substring({prop},1,3)='N40'"
+    },
+    {
+        "pxh": "17",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "肾功能衰竭",
+        "code": "sgnsj",
+        "codeRange": "N17-N19",
+        "rule": "substring({prop},1,3)>='N17' and substring({prop},1,3)<='N19'"
+    },
+    {
+        "pxh": "18",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "败血症",
+        "code": "bxz",
+        "codeRange": "A40,A41.900(国家版，排除A41.900x003,A41.900x004),A41.901(北京版)",
+        "rule": "p7>=18 and (substring({prop},1,3)='A40' or substring({prop}, 1, 7) <= case when substring('{icd10}',1,2)<='gj' then 'A41.900' else 'A41.901' end and substring({prop}, 1, 11) not in('A41.900x003','A41.900x004'))"
+    },
+    {
+        "pxh": "19",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "高血压病",
+        "code": "gxyb",
+        "codeRange": "I10-I15",
+        "rule": "p7>=18 and substring({prop},1,3)>='I10' and substring({prop},1,3)<='I15'"
+    },
+    {
+        "pxh": "20",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "急性胰腺炎",
+        "code": "jxyxy",
+        "codeRange": "K85",
+        "rule": "substring({prop},1,3)='K85'"
+    },
+    {
+        "pxh": "21",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "恶性肿瘤术后化疗",
+        "code": "exzlshhl",
+        "codeRange": "Z51.101",
+        "rule": "substring({prop},1,7)=case when substring('{icd10}',1,2)='gj' then 'Z51.102' else 'Z51.101' end"
+    },
+    {
+        "pxh": "22",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "恶性肿瘤维持性化疗",
+        "code": "exzlwcxhl",
+        "codeRange": "Z51.2,Z51.103",
+        "rule": "(substring({prop},1,5)='Z51.2' or substring({prop},1,7)='Z51.103')"
+    },
+    {
+        "pxh": "23",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "肺癌",
+        "code": "fa",
+        "codeRange": "C34",
+        "rule": "substring({prop},1,3)='C34'"
+    },
+    {
+        "pxh": "24",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "肝细胞肝癌",
+        "code": "gxbga",
+        "codeRange": "C22",
+        "rule": "substring({prop},1,3)='C22'"
+    },
+    {
+        "pxh": "25",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "宫颈癌",
+        "code": "gja",
+        "codeRange": "C53",
+        "rule": "substring({prop},1,3)='C53'"
+    },
+    {
+        "pxh": "26",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "结直肠癌",
+        "code": "jzca",
+        "codeRange": "C18-C20",
+        "rule": "substring({prop},1,3)>='C18' and substring({prop},1,3)<='C20'"
+    },
+    {
+        "pxh": "27",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "乳腺癌",
+        "code": "rxa",
+        "codeRange": "C50",
+        "rule": "substring({prop},1,3)='C50'"
+    },
+    {
+        "pxh": "28",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "食管癌",
+        "code": "sga",
+        "codeRange": "C15",
+        "rule": "substring({prop},1,3)='C15'"
+    },
+    {
+        "pxh": "29",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "胃癌",
+        "code": "wa",
+        "codeRange": "C16",
+        "rule": "substring({prop},1,3)='C16'"
+    },
+    {
+        "pxh": "30",
+        "orgGrade": "2",
+        "forgType": "1",
+        "diseasesName": "胰腺癌",
+        "code": "yxa",
+        "codeRange": "C25",
+        "rule": "substring({prop},1,3)='C25'"
+    },
+    {
+        "pxh": "31",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "肺癌",
+        "code": "fa",
+        "codeRange": "C34",
+        "rule": "substring({prop},1,3)='C34'"
+    },
+    {
+        "pxh": "32",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "结直肠癌",
+        "code": "jzca",
+        "codeRange": "C18-C20",
+        "rule": "substring({prop},1,3)>='C18' and substring({prop},1,3)<='C20'"
+    },
+    {
+        "pxh": "33",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "胃癌",
+        "code": "wa",
+        "codeRange": "C16",
+        "rule": "substring({prop},1,3)='C16'"
+    },
+    {
+        "pxh": "34",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "乳腺癌",
+        "code": "rxa",
+        "codeRange": "C50",
+        "rule": "substring({prop},1,3)='C50'"
+    },
+    {
+        "pxh": "35",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "肝癌",
+        "code": "ga",
+        "codeRange": "C22",
+        "rule": "substring({prop},1,3)='C22'"
+    },
+    {
+        "pxh": "36",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "食管癌",
+        "code": "sga",
+        "codeRange": "C15",
+        "rule": "substring({prop},1,3)='C15'"
+    },
+    {
+        "pxh": "37",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "胰腺癌",
+        "code": "yxa",
+        "codeRange": "C25",
+        "rule": "substring({prop},1,3)='C25'"
+    },
+    {
+        "pxh": "38",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "膀胱癌",
+        "code": "bga",
+        "codeRange": "C67",
+        "rule": "substring({prop},1,3)='C67'"
+    },
+    {
+        "pxh": "39",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "肾癌",
+        "code": "sa",
+        "codeRange": "C64",
+        "rule": "substring({prop},1,3)='C64'"
+    },
+    {
+        "pxh": "40",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "宫颈癌",
+        "code": "gja",
+        "codeRange": "C53,D06",
+        "rule": "(substring({prop},1,3)='C53' or substring({prop},1,3)='D06')"
+    },
+    {
+        "pxh": "41",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "鼻咽癌",
+        "code": "bya",
+        "codeRange": "C11",
+        "rule": "substring({prop},1,3)='C11'"
+    },
+    {
+        "pxh": "42",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "甲状腺癌",
+        "code": "jzxa",
+        "codeRange": "C73",
+        "rule": "substring({prop},1,3)='C73'"
+    },
+    {
+        "pxh": "43",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "卵巢癌",
+        "code": "lca",
+        "codeRange": "C56",
+        "rule": "substring({prop},1,3)='C56'"
+    },
+    {
+        "pxh": "44",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "子宫内膜癌",
+        "code": "zgnma",
+        "codeRange": "C54",
+        "rule": "substring({prop},1,3)='C54'"
+    },
+    {
+        "pxh": "45",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "喉癌",
+        "code": "ha",
+        "codeRange": "C32",
+        "rule": "substring({prop},1,3)='C32'"
+    },
+    {
+        "pxh": "46",
+        "orgGrade": "3",
+        "forgType": "8",
+        "diseasesName": "前列腺癌",
+        "code": "qlxa",
+        "codeRange": "C61",
+        "rule": "substring({prop},1,3)='C61'"
+    },
+    {
+        "pxh": "47",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "白内障（临床各类型白内障）",
+        "code": "bnzlcglxbnz",
+        "codeRange": "H25,H26,H28.0-H28.2",
+        "rule": "(substring({prop},1,3) in('H25','H26') or substring({prop},1,5) in('H28.0','H28.2'))"
+    },
+    {
+        "pxh": "48",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "青光眼",
+        "code": "qgy",
+        "codeRange": "H40,Q15.0",
+        "rule": "(substring({prop},1,3)='H40' or substring({prop},1,5)='Q15.0')"
+    },
+    {
+        "pxh": "49",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "玻璃体疾病（各种原因）",
+        "code": "bltjbgzyy",
+        "codeRange": "H43.1,H43.3",
+        "rule": "substring({prop},1,5) in('H43.1','H43.3')"
+    },
+    {
+        "pxh": "50",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "视网膜脱离",
+        "code": "swmtl",
+        "codeRange": "H33.0,H33.2,H33.5,H36.0",
+        "rule": "substring({prop},1,5) in('H33.0','H33.2','H33.5','H36.0')"
+    },
+    {
+        "pxh": "51",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "斜视",
+        "code": "xs",
+        "codeRange": "H49,H50",
+        "rule": "substring({prop},1,3) in('H49','H50')"
+    },
+    {
+        "pxh": "52",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "眼眶疾病（不包含肿瘤）",
+        "code": "ykjbbbhzl",
+        "codeRange": "H05,H06.1-H06.3",
+        "rule": "(substring({prop},1,3) ='H05' or (substring({prop},1,5) >='H06.1' and substring({prop},1,5) <='H06.3'))"
+    },
+    {
+        "pxh": "53",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "眼肿瘤",
+        "code": "yzl",
+        "codeRange": "C69.0-C69.9,H05.8,C44.1,D31.0-D31.9",
+        "rule": "((substring({prop},1,5) >='C69.0' and substring({prop},1,5) <='C69.9') or substring({prop},1,5)='H05.8' or substring({prop},1,5)='C44.1' or (substring({prop},1,5) >='D31.0' and substring({prop},1,5) <='D31.9'))"
+    },
+    {
+        "pxh": "54",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "糖尿病眼部并发症",
+        "code": "tnbybbfz",
+        "codeRange": "E10.3,E11.3,E12.3,E13.3,E14.3",
+        "rule": "substring({prop},1,5) in('E10.3','E11.3','E12.3','E13.3','E14.3')"
+    },
+    {
+        "pxh": "55",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "角膜疾病",
+        "code": "jmjb",
+        "codeRange": "H16.1-H16.9,H17,H18",
+        "rule": "((substring({prop},1,5) >='H16.1' and substring({prop},1,5) <='H16.9') or substring({prop},1,3) in('H17','H18'))"
+    },
+    {
+        "pxh": "56",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "角膜溃疡",
+        "code": "jmky",
+        "codeRange": "H16.0",
+        "rule": "substring({prop},1,5) ='H16.0'"
+    },
+    {
+        "pxh": "57",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "眼睑疾病",
+        "code": "yjjb",
+        "codeRange": "H00,H02,H03",
+        "rule": "substring({prop},1,3) in('H00','H02','H03')"
+    },
+    {
+        "pxh": "58",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "斜视弱视",
+        "code": "xsrs",
+        "codeRange": "H53.0",
+        "rule": "substring({prop},1,5) ='H53.0'"
+    },
+    {
+        "pxh": "59",
+        "orgGrade": "",
+        "forgType": "6",
+        "diseasesName": "葡萄膜炎",
+        "code": "ptmy",
+        "codeRange": "H20,H30",
+        "rule": "substring({prop},1,3) in('H20','H30')"
+    },
+    {
+        "pxh": "60",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "支气管肺炎",
+        "code": "zqgfy",
+        "codeRange": "J18.003",
+        "rule": "substring({prop},1,7) ='J18.003'"
+    },
+    {
+        "pxh": "61",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "小儿腹泻病",
+        "code": "xefxb",
+        "codeRange": "K52.9",
+        "rule": "substring({prop},1,5) ='K52.9'"
+    },
+    {
+        "pxh": "62",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "先天性心脏病",
+        "code": "xtxxzb",
+        "codeRange": "Q24.901,Q21.102,Q21.001,Q21.301,Q25.001",
+        "rule": "substring({prop},1,7) in('Q24.901','Q21.102','Q21.001','Q21.301','Q25.001')"
+    },
+    {
+        "pxh": "63",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "川崎病",
+        "code": "cqb",
+        "codeRange": "M30.301",
+        "rule": "substring({prop},1,7) ='M30.301'"
+    },
+    {
+        "pxh": "64",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "急性淋巴细胞白血病",
+        "code": "jxlbxbbxb",
+        "codeRange": "C91.0",
+        "rule": "substring({prop},1,5) ='C91.0'"
+    },
+    {
+        "pxh": "65",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "特发性血小板减少性紫癜",
+        "code": "tfxxxbjsxzd",
+        "codeRange": "D69.303,D69.402,D69.602",
+        "rule": "substring({prop},1,7) in('D69.303','D69.402','D69.602')"
+    },
+    {
+        "pxh": "66",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "中枢神经系统感染",
+        "code": "zssjxtgr",
+        "codeRange": "G04.925,G04.923",
+        "rule": "substring({prop},1,7) in('G04.925','G04.923')"
+    },
+    {
+        "pxh": "67",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "癫痫",
+        "code": "dx",
+        "codeRange": "G40",
+        "rule": "substring({prop},1,3) ='G40'"
+    },
+    {
+        "pxh": "68",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "低出生体重儿",
+        "code": "dcstze",
+        "codeRange": "P07,P05.001",
+        "rule": "(substring({prop},1,3) ='P07' or substring({prop},1,7) ='P05.001')"
+    },
+    {
+        "pxh": "69",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "新生儿高胆红素血症",
+        "code": "xsegdhsxz",
+        "codeRange": "P59.901",
+        "rule": "substring({prop},1,7) ='P59.901'"
+    },
+    {
+        "pxh": "70",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "新生儿呼吸窘迫",
+        "code": "xsehxjp",
+        "codeRange": "P22",
+        "rule": "substring({prop},1,3) ='P22'"
+    },
+    {
+        "pxh": "71",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "原发性肾病综合症",
+        "code": "yfxsbzhz",
+        "codeRange": "N04",
+        "rule": "substring({prop},1,3) ='N04'"
+    },
+    {
+        "pxh": "72",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "泌尿系感染",
+        "code": "mnxgr",
+        "codeRange": "N39.001",
+        "rule": "substring({prop},1,7) ='N39.001'"
+    },
+    {
+        "pxh": "73",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "急性阑尾炎",
+        "code": "jxlwy",
+        "codeRange": "K35",
+        "rule": "substring({prop},1,3) ='K35'"
+    },
+    {
+        "pxh": "74",
+        "orgGrade": "",
+        "forgType": "13",
+        "diseasesName": "脓毒血症",
+        "code": "ndxz",
+        "codeRange": "A41.902",
+        "rule": "substring({prop},1,7) ='A41.902'"
+    },
+    {
+        "pxh": "75",
+        "orgGrade": "",
+        "forgType": "1",
+        "diseasesName": "糖尿病无短期或长期合并症",
+        "code": "tnbwdqhzqhbz",
+        "codeRange": "E10.9,E11.9,E12.9,E13.9,E14.9",
+        "rule": "(substring({prop},1,5) in('E10.9','E11.9','E12.9','E13.9','E14.9'))"
+    },
+    {
+        "pxh": "91",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "脑性瘫痪",
+        "code": "nxth",
+        "codeRange": "G80",
+        "rule": "( substring({prop},1,3) in('G80'))"
+    },
+    {
+        "pxh": "92",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "精神发育迟滞",
+        "code": "jsfycz",
+        "codeRange": "F70-F79",
+        "rule": "( (substring({prop},1,3)>='F70' and substring({prop},1,3)<='F79'))"
+    },
+    {
+        "pxh": "93",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "童年孤独症",
+        "code": "tngdz",
+        "codeRange": "F84",
+        "rule": "( substring({prop},1,3) in('F84'))"
+    },
+    {
+        "pxh": "94",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "骨折与运动损伤术后",
+        "code": "gzyydsssh",
+        "codeRange": "Z98.800,G24.902,Z54.451,Z98.800",
+        "rule": "( substring({prop},1,7) in('Z98.800','G24.902','Z54.451','Z98.800'))"
+    },
+    {
+        "pxh": "96",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "脑卒中",
+        "code": "nzz",
+        "codeRange": "I60.901,I61.902,I62.901,I63.902,I69.801",
+        "rule": "( substring({prop},1,7) in('I60.901','I61.902','I62.901','I63.902','I69.801'))"
+    },
+    {
+        "pxh": "97",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "人工关节置换术后",
+        "code": "rggjzhsh",
+        "codeRange": "Z96.951,Z96.601,Z96.851",
+        "rule": "( substring({prop},1,7) in('Z96.951','Z96.601','Z96.851'))"
+    },
+    {
+        "pxh": "98",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "脊柱关节退行性疾病",
+        "code": "jzgjtxxjb",
+        "codeRange": "M47.821,M51.202,M48.091,M19.955,M19.966",
+        "rule": "( substring({prop},1,7) in('M47.821','M51.202','M48.091','M19.955','M19.966'))"
+    },
+    {
+        "pxh": "86",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "脊髓损伤术后",
+        "code": "jssssh",
+        "codeRange": "T09.302,S14.101,S24.101,S34.101,T91.315,G83.401",
+        "rule": "( substring({prop},1,7) in('T09.302','S14.101','S24.101','S34.101','T91.315','G83.401'))"
+    },
+    {
+        "pxh": "83",
+        "orgGrade": "3",
+        "forgType": "21",
+        "diseasesName": "脑外伤",
+        "code": "nws",
+        "codeRange": "T90.555,Z54.852,S06.9061",
+        "rule": "( substring({prop},1,7) in('T90.555','Z54.852') or  substring({prop},1,8) in('S06.9061'))"
+    }
+]

@@ -1,0 +1,64 @@
+//公用样式
+.primary {
+  &-text-color {
+    color: @primary-color !important;
+  }
+  &-outline-color {
+    outline-color: @primary-color !important;
+  }
+  &-border-color {
+    border-color: @primary-color !important;
+    &::after,  &::before{
+      border-color: @primary-color !important;
+    }
+  }
+  &-bg-color {
+    background-color: @primary-color !important;
+  }
+  &-text-decoration-color {
+    text-decoration-color: @primary-color !important;
+  }
+
+  &-shadow.swiper-slide-thumb-active {
+    box-shadow: 3px 2px 10px fade(@primary-color, 25%) !important;
+  }
+
+}
+.ant-menu-vertical .ant-menu-submenu.ant-menu-submenu-selected{
+  background:fade(@primary-color, 25%) !important;
+}
+
+//table 高亮颜色更改
+.table-mini-size.hightlight .ant-table-fixed .ant-table-tbody>tr:first-child td,
+.table-mini-size.hightlight .ant-table-body .ant-table-fixed .ant-table-tbody>tr:first-child td {
+  background: fade(@primary-color, 5%) !important
+}
+.table-mini-size .hightlight{
+  background: fade(@primary-color, 5%) !important;
+}
+//table hover背景色更改
+.ant-table-thead > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td, 
+.ant-table-tbody > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td, 
+.ant-table-thead > tr:hover:not(.ant-table-expanded-row) > td, 
+.ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
+  background: fade(@primary-color, 35%) !important;
+}
+/* 勾选table数据相关变化内容 */
+.ant-table-tbody > tr.ant-table-row-selected td{
+  background-color: fade(@primary-color, 55%)  !important;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+}
+// table选中后的背景色更改
+.ant-table-thead > tr.ant-table-row-hover.ant-table-row-selected:not(.ant-table-expanded-row) > td, 
+.ant-table-tbody > tr.ant-table-row-hover.ant-table-row-selected:not(.ant-table-expanded-row) > td, 
+.ant-table-thead > tr.ant-table-row-selected:hover:not(.ant-table-expanded-row) > td, 
+.ant-table-tbody > tr.ant-table-row-selected:hover:not(.ant-table-expanded-row) > td {
+  background: fade(@primary-color, 65%) !important;
+}
+//切换子系统默认边框颜色变更
+.ant-tag-checkable-checked {
+  border-color: @primary-color !important;
+}

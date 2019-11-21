@@ -1,0 +1,81 @@
+export default {
+  'fetch/Table': [{
+    "groupId": "AA087B7B10D04778BD3BB91E54F68598",
+    "groupName": "admin",
+    "orgId": 1,
+    "tfRemark": null,
+    "createTime": "2018-06-11 10:27:52",
+    "createUserid": "CA86AE949E5A436982B89D6555ED3315",
+    "modifyUserid": null,
+    "groupType": "03",
+    "groupCode": null,
+    "sourceGroupId": null,
+    "isOrgCoreGroup": null,
+    "modifyTime": '2018-12-13 09:55:00'
+  }, {
+    "groupId": "9928D51BC68148E59C703BA047435A0B",
+    "groupName": "team-jfzx-002",
+    "orgId": 1,
+    "tfRemark": "002",
+    "createTime": "2018-06-04 11:54:43",
+    "createUserid": "CA86AE949E5A436982B89D6555ED3315",
+    "modifyUserid": null,
+    "groupType": "03",
+    "groupCode": null,
+    "sourceGroupId": null,
+    "isOrgCoreGroup": null,
+    "modifyTime": '2018-12-13 09:55:00'
+  }, {
+    "groupId": "B4E4B1BC001244D091F3E5F21FAB34B6",
+    "groupName": "采购权限",
+    "orgId": 1,
+    "tfRemark": "123",
+    "createTime": "2017-11-24 16:56:35",
+    "createUserid": "3D8FCF7341D1414A93919694D63B9D45",
+    "modifyUserid": null,
+    "groupType": "03",
+    "groupCode": null,
+    "sourceGroupId": null,
+    "isOrgCoreGroup": null,
+    "modifyTime": '2018-12-13 09:55:00'
+  }, {
+    "groupId": "C033BEBF956F45FA9F5F99F1E3289333",
+    "groupName": "测试001",
+    "orgId": 1,
+    "tfRemark": null,
+    "createTime": "2018-07-02 10:47:07",
+    "createUserid": "1E7105C5FB734CEB987DA3E8571079EC",
+    "modifyUserid": null,
+    "groupType": "03",
+    "groupCode": null,
+    "sourceGroupId": null,
+    "isOrgCoreGroup": null,
+    "modifyTime": '2018-12-13 09:55:00'
+  }, {
+    "groupId": "DD20FE04442A45659C23CB750D2AA1B2",
+    "groupName": "测试001权限",
+    "orgId": 1,
+    "tfRemark": null,
+    "createTime": "2018-06-04 11:16:29",
+    "createUserid": "3069E6EDFD7246A28578F9C0058C8D2C",
+    "modifyUserid": null,
+    "groupType": "03",
+    "groupCode": null,
+    "sourceGroupId": null,
+    "isOrgCoreGroup": null,
+    "modifyTime": '2018-12-13 09:55:00'
+  }, {
+    "groupId": "F8CA9EAF636B4C6B9F1201CF63143345",
+    "groupName": "测试2.6",
+    "orgId": 1,
+    "tfRemark": "王uu",
+    "createTime": "2018-02-06 10:11:45",
+    "createUserid": "3069E6EDFD7246A28578F9C0058C8D2C",
+    "modifyUserid": null,
+    "groupType": "03",
+    "groupCode": null,
+    "sourceGroupId": null,
+    "isOrgCoreGroup": null,
+    "modifyTime": '2018-12-13 09:55:00'
+  }]
+}

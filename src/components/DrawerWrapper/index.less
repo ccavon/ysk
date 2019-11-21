@@ -1,0 +1,74 @@
+.drawerWrapper {
+  h3,h4,h5 {
+    margin-bottom: 0 !important;
+  }
+  .ant-page-header{
+    max-height: 132px;
+  }
+  .ant-page-header-title-view-extra {
+    right: 56px;
+  }
+
+  .ant-drawer-wrapper-body{
+    overflow: hidden !important;
+  }
+  .ant-page-header-title-view{
+    display: block;
+    clear: both;
+    height: 32px;
+    line-height: 32px;
+  }
+  .ant-page-header-content-view {
+    padding:0;
+    .ant-col-8{
+      color: rgba(0, 0, 0, 0.35)
+    }
+  }
+
+  .ant-statistic-content,.ant-statistic-title{
+    min-width: 100px;
+    text-align: right;
+    .ant-statistic-content-value{
+      font-size: 16px;
+    }
+  }
+
+  .wrap{
+    display: flex;
+    .content{
+      flex: 1;
+      background: transparent;
+    }
+    .extraContent{
+      min-height: 56px;
+    } 
+  }
+  .ant-page-header-content-view .ant-col{
+    height: 32px;
+    line-height: 32px;
+  }
+  .drawerContent{
+    padding: 24px 24px 56px;
+    overflow: scroll;
+    height: calc(100vh - 132px);
+    box-sizing: border-box;
+    .ant-tabs{
+      margin: -24px;
+      .ant-tabs-nav-scroll{
+        background: #e6ecf3;
+        padding: 0 24px;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+      }
+    }
+
+    .ant-tabs .ant-tabs-top-content > .ant-tabs-tabpane, .ant-tabs .ant-tabs-bottom-content > .ant-tabs-tabpane{
+      padding: 45px 24px 0 !important;
+    }
+
+    .antd-pro-footer-toolbar-toolbar{
+      width: 980px !important;
+    }
+  }
+}

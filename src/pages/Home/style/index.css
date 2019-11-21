@@ -1,0 +1,10 @@
+@import '../../../../node_modules/react-grid-layout/css/styles.css';
+@import '../../../../node_modules/react-resizable/css/styles.css';
+
+.layout>div {
+  background: #f5f5f5;
+}
+
+#board:-webkit-full-screen .react-grid-layout {
+  background: #fff;
+}

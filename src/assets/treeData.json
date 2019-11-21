@@ -1,0 +1,725 @@
+[
+    {
+        "fcode": "1",
+        "fdesc": "综合评价类指标",
+        "gpMode_fdesc": "",
+        "children": [
+            {
+                "fcode": "1.1",
+                "fdesc": "出院患者情况",
+                "gpMode_fdesc": "年份",
+                "children": [
+                    {
+                        "fcode": "1.2.1",
+                        "fdesc": "住院死亡类指标",
+                        "gpMode_fdesc": "",
+                        "children": [
+                            {
+                                "fcode": "1.2.1.1",
+                                "fdesc": "患者住院死亡率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.1.2",
+                                "fdesc": "手术患者住院死亡率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.1.3",
+                                "fdesc": "手术患者“围手术期”住院死亡率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.1.4",
+                                "fdesc": "择期手术患者“围手术期”住院死亡率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.1.5",
+                                "fdesc": "新生儿患者住院死亡率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.1.6",
+                                "fdesc": "常见恶性肿瘤择期手术患者住院死亡率",
+                                "gpMode_fdesc": "肿瘤/年份"
+                            },
+                            {
+                                "fcode": "1.2.1.7",
+                                "fdesc": "常见恶性肿瘤手术患者住院死亡率",
+                                "gpMode_fdesc": "肿瘤/年份"
+                            },
+                            {
+                                "fcode": "1.2.1.8",
+                                "fdesc": "恶性肿瘤相关重点手术患者死亡情况",
+                                "gpMode_fdesc": "恶性肿瘤重点手术/年份"
+                            },
+                            {
+                                "fcode": "1.2.1.9",
+                                "fdesc": "麻醉后24小时内死亡率",
+                                "gpMode_fdesc": "年份"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fcode": "1.2",
+                "fdesc": "医疗质量类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "1.2.2",
+                        "fdesc": "重返类指标",
+                        "gpMode_fdesc": "",
+                        "children": [
+                            {
+                                "fcode": "1.2.2.1",
+                                "fdesc": "患者出院2—31天内再住院率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.2.2",
+                                "fdesc": "手术患者术后重返手术室再次手术发生率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.2.3",
+                                "fdesc": "48小时内非预期重返ICU率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.2.4",
+                                "fdesc": "患者出院2—15天内再住院率",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.2.5",
+                                "fdesc": "24小时内非预期重返ICU率",
+                                "gpMode_fdesc": "年份"
+                            }
+                        ]
+                    },
+                    {
+                        "fcode": "1.2.3",
+                        "fdesc": "医疗质量类",
+                        "gpMode_fdesc": "",
+                        "children": [
+                            {
+                                "fcode": "1.2.3.1",
+                                "fdesc": "好转情况",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.3.2",
+                                "fdesc": "治愈情况",
+                                "gpMode_fdesc": "年份"
+                            },
+                            {
+                                "fcode": "1.2.3.3",
+                                "fdesc": "出院患者占用总床日",
+                                "gpMode_fdesc": "年份"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fcode": "1.3",
+                "fdesc": "患者安全类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "1.3.1",
+                        "fdesc": "出院患者压疮发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.3.2",
+                        "fdesc": "手术患者手术并发症发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.3.3",
+                        "fdesc": "手术患者肺部感染发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.3.4",
+                        "fdesc": "手术患者肺栓塞发生率",
+                        "gpMode_fdesc": "年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "1.4",
+                "fdesc": "医疗服务效率类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "1.4.1",
+                        "fdesc": "患者出院当天再住院率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.4.2",
+                        "fdesc": "出院患者中位住院日",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.4.3",
+                        "fdesc": "出院患者中位住院费",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.4.4",
+                        "fdesc": "出院患者平均住院日",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.4.5",
+                        "fdesc": "出院患者平均住院费",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.4.6",
+                        "fdesc": "出院患者平均术前占床日",
+                        "gpMode_fdesc": "年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "1.5",
+                "fdesc": "重点疾病各类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "1.5.1",
+                        "fdesc": "患者住院死亡率",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.2",
+                        "fdesc": "患者出院2—31天内再住院率",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.3",
+                        "fdesc": "患者出院当天再住院率",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.4",
+                        "fdesc": "出院患者中位住院日",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.5",
+                        "fdesc": "出院患者中位住院费",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.6",
+                        "fdesc": "出院患者平均住院日",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.7",
+                        "fdesc": "出院患者平均住院费",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.8",
+                        "fdesc": "出院患者平均术前占床日",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.9",
+                        "fdesc": "患者出院2—15天内再住院率",
+                        "gpMode_fdesc": "病种/年份"
+                    },
+                    {
+                        "fcode": "1.5.10",
+                        "fdesc": "各指标汇总报表",
+                        "gpMode_fdesc": "病种/年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "1.6",
+                "fdesc": "重点手术各类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "1.6.1",
+                        "fdesc": "患者住院死亡率",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.2",
+                        "fdesc": "患者出院2—31天内再住院率",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.3",
+                        "fdesc": "手术患者术后重返手术室再次手术发生率",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.4",
+                        "fdesc": "患者出院当天再住院率",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.6",
+                        "fdesc": "出院患者中位住院费",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.7",
+                        "fdesc": "出院患者平均住院日",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.8",
+                        "fdesc": "出院患者平均住院费",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.9",
+                        "fdesc": "出院患者平均术前占床日",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.10",
+                        "fdesc": "患者出院2—15天内再住院率",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "1.6.11",
+                        "fdesc": "各指标汇总报表",
+                        "gpMode_fdesc": "手术/年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "1.7",
+                "fdesc": "附加指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "1.7.1",
+                        "fdesc": "前20位疾病构成顺位表",
+                        "gpMode_fdesc": "主要诊断/年份"
+                    },
+                    {
+                        "fcode": "1.7.2",
+                        "fdesc": "前20位手术构成顺位表",
+                        "gpMode_fdesc": "主要手术/年份"
+                    },
+                    {
+                        "fcode": "1.7.3",
+                        "fdesc": "前10位疾病死因构成表",
+                        "gpMode_fdesc": "主要诊断/年份"
+                    },
+                    {
+                        "fcode": "1.7.4",
+                        "fdesc": "重返手术室发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "1.7.5",
+                        "fdesc": "手术级别统计",
+                        "gpMode_fdesc": "主要手术级别/年份"
+                    },
+                    {
+                        "fcode": "1.7.6",
+                        "fdesc": "全部疾病构成顺位表",
+                        "gpMode_fdesc": "主要诊断/年份"
+                    },
+                    {
+                        "fcode": "1.7.7",
+                        "fdesc": "全部手术构成顺位表",
+                        "gpMode_fdesc": "主要手术/年份"
+                    },
+                    {
+                        "fcode": "1.7.8",
+                        "fdesc": "全部疾病死因构成表",
+                        "gpMode_fdesc": "主要诊断/年份"
+                    },
+                    {
+                        "fcode": "1.7.9",
+                        "fdesc": "科室耗材占比分析",
+                        "gpMode_fdesc": "出院科室/年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "1.8",
+                "fdesc": "脑卒中诊疗情况调查表",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "1.8.1",
+                        "fdesc": "神经科出院患者情况",
+                        "gpMode_fdesc": "批次"
+                    },
+                    {
+                        "fcode": "1.8.2",
+                        "fdesc": "第一诊断脑梗塞",
+                        "gpMode_fdesc": "批次"
+                    },
+                    {
+                        "fcode": "1.8.3",
+                        "fdesc": "第一诊断短暂性脑缺血发作(TIA)",
+                        "gpMode_fdesc": "批次"
+                    },
+                    {
+                        "fcode": "1.8.4",
+                        "fdesc": "第一诊断脑出血",
+                        "gpMode_fdesc": "批次"
+                    },
+                    {
+                        "fcode": "1.8.5",
+                        "fdesc": "第一诊断蛛网膜下腔出血",
+                        "gpMode_fdesc": "批次"
+                    },
+                    {
+                        "fcode": "1.8.6",
+                        "fdesc": "急性缺血性卒中单纯静脉溶栓",
+                        "gpMode_fdesc": "批次"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fcode": "2",
+        "fdesc": "手术质量与安全",
+        "gpMode_fdesc": "",
+        "children": [
+            {
+                "fcode": "2.1",
+                "fdesc": "手术患者基本情况",
+                "gpMode_fdesc": "年份"
+            },
+            {
+                "fcode": "2.2",
+                "fdesc": "手术死亡类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "2.2.1",
+                        "fdesc": "手术患者住院死亡率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.2.2",
+                        "fdesc": "手术患者“围手术期”住院死亡率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.2.3",
+                        "fdesc": "择期手术患者“围手术期”住院死亡率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.2.4",
+                        "fdesc": "手术死亡患者手术并发症发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.2.5",
+                        "fdesc": "麻醉分级（ASA分级）“围手术期”住院死亡率",
+                        "gpMode_fdesc": "麻醉分级/年份"
+                    },
+                    {
+                        "fcode": "2.2.6",
+                        "fdesc": "麻醉后24小时内死亡率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.2.7",
+                        "fdesc": "新生儿手术患者住院死亡率",
+                        "gpMode_fdesc": "年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "2.3",
+                "fdesc": "重返类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "2.3.1",
+                        "fdesc": "手术患者重返手术室再次手术总发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4",
+                        "fdesc": "手术并发症类指标",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "2.4.1",
+                        "fdesc": "手术患者与手术操作相关并发症发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4.2",
+                        "fdesc": "手术患者手术后肺栓塞发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4.3",
+                        "fdesc": "手术患者手术后深静脉血栓发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4.4",
+                        "fdesc": "手术患者手术后败血症发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4.5",
+                        "fdesc": "手术患者手术后出血或血肿发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4.6",
+                        "fdesc": "手术患者手术伤口裂开发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4.7",
+                        "fdesc": "手术患者手术后呼吸衰竭发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.4.8",
+                        "fdesc": "手术患者手术后生理/代谢紊乱发生率",
+                        "gpMode_fdesc": "年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "2.5",
+                "fdesc": "重点手术",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "2.5.1",
+                        "fdesc": "重点手术住院死亡率",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "2.5.2",
+                        "fdesc": "重点手术患者出院 31天内再住院率",
+                        "gpMode_fdesc": "手术/年份"
+                    },
+                    {
+                        "fcode": "2.5.3",
+                        "fdesc": "重点手术患者重返手术室再次手术发生率",
+                        "gpMode_fdesc": "手术/年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "2.6",
+                "fdesc": "麻醉质量控制指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "2.6.1",
+                        "fdesc": "各ASA分级麻醉患者比例",
+                        "gpMode_fdesc": "麻醉分级/年份"
+                    },
+                    {
+                        "fcode": "2.6.2",
+                        "fdesc": "手术患者麻醉并发症发生率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.6.3",
+                        "fdesc": "各类麻醉方式比例",
+                        "gpMode_fdesc": "麻醉方式类别/年份"
+                    },
+                    {
+                        "fcode": "2.6.4",
+                        "fdesc": "麻醉复苏例数",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.6.5",
+                        "fdesc": "麻醉后监测治疗室（PACU）转出延迟率（>3h）",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.6.6",
+                        "fdesc": "PACU入室低体温率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "2.6.7",
+                        "fdesc": "急诊非择期麻醉比例",
+                        "gpMode_fdesc": "年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "2.7",
+                "fdesc": "感染类指标",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "2.7.1",
+                        "fdesc": "手术后30天内感染例数（率）",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "2.7.2",
+                        "fdesc": "围手术期预防性抗菌药物使用率（术前1小时内）",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "2.7.3",
+                        "fdesc": "手术风险评估",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "2.7.4",
+                        "fdesc": "手术安全核查",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "2.7.5",
+                        "fdesc": "手术患者术后24小时内非计划转入ICU比例",
+                        "gpMode_fdesc": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fcode": "3",
+        "fdesc": "DRGs绩效分析",
+        "gpMode_fdesc": "",
+        "children": [
+            {
+                "fcode": "3.1",
+                "fdesc": "医疗服务能力",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "3.1.1",
+                        "fdesc": "入组率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "3.1.2",
+                        "fdesc": "MDC收治情况",
+                        "gpMode_fdesc": "主要疾病分类/年份"
+                    },
+                    {
+                        "fcode": "3.1.3",
+                        "fdesc": "病例组合指数(CMI)",
+                        "gpMode_fdesc": "年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "3.2",
+                "fdesc": "医疗服务效率",
+                "gpMode_fdesc": "年份"
+            },
+            {
+                "fcode": "3.3",
+                "fdesc": "医疗安全",
+                "gpMode_fdesc": "年份",
+                "children": [
+                    {
+                        "fcode": "3.3.1",
+                        "fdesc": "死亡人数",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "3.3.2",
+                        "fdesc": "死亡率",
+                        "gpMode_fdesc": "年份"
+                    },
+                    {
+                        "fcode": "3.3.3",
+                        "fdesc": "前10大病种病人占比",
+                        "gpMode_fdesc": "主要诊断/年份"
+                    },
+                    {
+                        "fcode": "3.3.4",
+                        "fdesc": "前10大病种难度占比",
+                        "gpMode_fdesc": "主要诊断/年份"
+                    }
+                ]
+            },
+            {
+                "fcode": "3.4",
+                "fdesc": "综合评价",
+                "gpMode_fdesc": "年份"
+            }
+        ]
+    },
+    {
+        "fcode": "4",
+        "fdesc": "绩效考核",
+        "gpMode_fdesc": "",
+        "children": [
+            {
+                "fcode": "4.1",
+                "fdesc": "功能定位",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "4.1.1",
+                        "fdesc": "出院患者手术占比",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "4.1.2",
+                        "fdesc": "出院患者微创手术占比",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "4.1.3",
+                        "fdesc": "出院患者四级手术比例",
+                        "gpMode_fdesc": ""
+                    }
+                ]
+            },
+            {
+                "fcode": "4.2",
+                "fdesc": "质量安全",
+                "gpMode_fdesc": "",
+                "children": [
+                    {
+                        "fcode": "4.2.1",
+                        "fdesc": "手术患者并发症发生率",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "4.2.2",
+                        "fdesc": "I类切口手术部位感染率",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "4.2.3",
+                        "fdesc": "单病种质量控制",
+                        "gpMode_fdesc": ""
+                    },
+                    {
+                        "fcode": "4.2.4",
+                        "fdesc": "低风险组病例死亡率",
+                        "gpMode_fdesc": ""
+                    }
+                ]
+            }
+        ]
+    }
+]
