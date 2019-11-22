@@ -12,13 +12,6 @@ export default {
     //   ]
     // },
     {
-      path: '/testPages', name: '测试页面', icon: 'sketch', children: [
-        {
-          path: '/testPages/page1', name: '测试页面1'
-        },
-      ]
-    },
-    {
       path: '/monitoringReport', name: '监测报告', icon: 'file-done', children: [
         {
           path: '/monitoringReport/qualityAnalysis', name: '质量分析'
