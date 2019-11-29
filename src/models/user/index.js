@@ -1,11 +1,15 @@
-import { queryCurrent, register } from '@/services/user';
+import * as userService from '@/services/user';
+import { register } from '@/services/user';
 
 export default {
   namespace: 'user',
 
   state: {
     list: [],
+    menuList: [],
+    systemList: [],
     currentUser: {},
+    menuAllList: [], // 当前用户的所有系统与菜单
   },
 
   effects: {
@@ -16,28 +20,35 @@ export default {
     //     payload: response,
     //   });
     // },
-    *fetchCurrent(_, { call, put }) {
-      const response = yield call(queryCurrent);
-      yield put({
-        type: 'saveCurrentUser',
-        payload: response,
-      });
+    // *fetchCurrent(_, { call, put }) {
+    //   const response = yield call(queryCurrent);
+    //   yield put({
+    //     type: 'saveCurrentUser',
+    //     payload: response,
+    //   });
+    // },
+    // *userLogin({ payload, callback }, { put }) {
+    //   const { userName, password } = payload;
+    //   let flag = true;
+    //   if (userName === 'admin' && password === 'admin') {
+    //     yield put({
+    //       type: 'saveCurrentUser',
+    //       payload
+    //     })
+    //   } else {
+    //     flag = false;
+    //   }
+    //   setTimeout(() => {
+    //     if (callback) callback(flag)
+    //   }, 1000)
+    // },
+    *userLogin({ payload, callback }, { call, put }) {
+      const response = yield call(userService.userLogin, payload);
+      console.log(response);
+      if (callback) callback(response)
     },
-    *userLogin({ payload, callback }, { put }) {
-      const { userName, password } = payload;
-      let flag = true;
-      if (userName === 'admin' && password === 'admin') {
-        yield put({
-          type: 'saveCurrentUser',
-          payload
-        })
-      } else {
-        flag = false;
-      }
-      setTimeout(() => {
-        if (callback) callback(flag)
-      }, 1000)
-    },
+
+    
     *register({ payload, callback, _ }, { call, put }) {
       const response = yield call(register, payload)
       let flag = response ? true : false;

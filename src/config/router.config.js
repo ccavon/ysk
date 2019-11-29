@@ -1,4 +1,6 @@
 import dynamic from 'dva/dynamic';
+import { System } from '../routes/system';
+
 import { Setting } from '../routes/setting';
 import { QualityInspection } from '../routes/qualityInspection';
 import { BasicSettings } from '../routes/basicSettings';
@@ -67,6 +69,7 @@ export const getNavData = app => [
         component: dynamicWrapper(app, [], () => import('@/pages/Home'))
       },
       // 挂载各个模块路由
+      ...genRouter(System, app),
       ...genRouter(Setting, app),
       ...genRouter(QualityInspection, app),
       ...genRouter(BasicSettings, app),

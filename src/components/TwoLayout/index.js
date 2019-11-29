@@ -33,11 +33,11 @@ class TwoLayout extends PureComponent {
                 </div>
               }
               RightContent={
-                <div>
+                <div className={'zIndexLayout-current'}>
                   12313131
                 </div>
               }
-            ></TwoLayout>
+            />
           </PageHeaderWrapper>
         </Authority>
        */

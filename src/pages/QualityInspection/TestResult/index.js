@@ -370,6 +370,7 @@ class TestResult extends PureComponent {
             title={'数据检查'}
             centered={true}
             maskClosable={false}
+            destroyOnClose={true}
             onCancel={() => this.setState({ visible: false })}
             onOk={() => { message.success("检测成功!"); this.setState({ visible: false }) }}
           >

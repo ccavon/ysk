@@ -1,6 +1,6 @@
 import CN from '@/locale/zh_CN';
+import { userLocal } from '@/api/_local';
 import querystring from 'querystring';
-import { _local } from '@/api/_local';
 
 /**
  * @desc 获取标准信息
@@ -35,7 +35,7 @@ export function getPlainNode(nodeList, parentPath = '') {
   return arr;
 }
 
-export function fetchData(api, body, callback, type='application/x-www-form-urlencoded', method='post'){
+export function fetchData(api, body, callback, type = 'application/x-www-form-urlencoded', method = 'post') {
   const query = typeof body === 'object' ? JSON.stringify(body) : body;
   fetch(api, {
     method: method,
@@ -61,33 +61,33 @@ export function fetchData(api, body, callback, type='application/x-www-form-urle
 }
 
 export const City = (cb) => {
-  if(localStorage.getItem(City)) {
-   cb(JSON.parse(localStorage.getItem(City)));
- } else {
-   fetch(`${_local}/js/City.json`, {
-     credentials: 'include',
-     headers: {
-       'Content-Type': 'application/x-www-form-urlencoded'
-     },
-   })
-   .then((res) => res.json())
-   .then((json) => {
-     cb(json)
-     localStorage.setItem(City, JSON.stringify(json));
-   })
-   .catch((err) => cb(err))
- }
+  if (localStorage.getItem(City)) {
+    cb(JSON.parse(localStorage.getItem(City)));
+  } else {
+    fetch(`${userLocal}/js/City.json`, {
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        cb(json)
+        localStorage.setItem(City, JSON.stringify(json));
+      })
+      .catch((err) => cb(err))
+  }
 }
 
 /**
  * @param {function} 请求函数
  */
-export const createEffects = (servicesFun) => function *({ payload, callback },{ put, call }) {  
-  if(typeof servicesFun !== 'function') {
+export const createEffects = (servicesFun) => function* ({ payload, callback }, { put, call }) {
+  if (typeof servicesFun !== 'function') {
     return console.error(new Error(`servicesFun: ${servicesFun} is not function`));
   }
   const response = yield call(servicesFun, payload);
-  if(callback && typeof callback === 'function') {
+  if (callback && typeof callback === 'function') {
     callback(response);
   };
   return response;
@@ -112,10 +112,10 @@ export const resolveSearch = (search) => {
  */
 
 export const randChar = (len = 4) => {
-  let characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',result = '';
+  let characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', result = '';
   characters = characters.split('');
-  for( let i = 0 ; i < len; i++ ){
-    result += characters[Math.floor(Math.random()*characters.length)]
+  for (let i = 0; i < len; i++) {
+    result += characters[Math.floor(Math.random() * characters.length)]
   }
   return result;
 }

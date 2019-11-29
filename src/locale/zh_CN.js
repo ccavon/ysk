@@ -83,8 +83,12 @@ export default {
   'menu.monitoringReport': '监测报告',
   'menu.qualityAnalysis': '质量分析',
   'menu.keyDisease': '常见重点疾病分类',
-  'menu.testPages': '测试页面',
-  'menu.page1': '测试页面1',
+  'menu.system': '系统管理',
+  'menu.userMgt': '用户管理',
+  'menu.areaMgt': '区域管理',
+  'menu.orgMgt': '机构管理',
+  'menu.deptMgt': '部门管理',
+
   /* 
     全局样式
   */

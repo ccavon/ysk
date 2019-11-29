@@ -12,6 +12,22 @@ export default {
     //   ]
     // },
     {
+      path: '/system', name: '系统管理', icon: 'setting', children: [
+        {
+          path: '/system/userMgt', name: '用户管理'
+        },
+        {
+          path: '/system/areaMgt', name: '区域管理'
+        },
+        {
+          path: '/system/orgMgt', name: '机构管理'
+        },
+        {
+          path: '/system/deptMgt', name: '部门管理'
+        }
+      ]
+    },
+    {
       path: '/monitoringReport', name: '监测报告', icon: 'file-done', children: [
         {
           path: '/monitoringReport/qualityAnalysis', name: '质量分析'
