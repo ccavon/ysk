@@ -17,7 +17,7 @@ export async function register() {
 export async function userLogin(options) {
   return request(users.LOGIN, {
     method: 'POST',
-    type: 'formData',
+    type: 'json',
     body: options
   });
 }

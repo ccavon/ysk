@@ -2,7 +2,7 @@
  * @Author: chengyafang 
  * @Date: 2019-10-25 14:55:59 
  * @Last Modified by: chengyafang
- * @Last Modified time: 2019-11-20 09:24:38
+ * @Last Modified time: 2019-12-02 16:12:14
  * @File 子系统切换
  * @description 当登录成功时进入-->此时需要进行医疗机构选择
  */
@@ -20,7 +20,7 @@ const { Header, Content, Footer } = Layout;
 @connect(({ global, user, menu }) => ({ menuData: global.menuData, user, menu }))
 class SubSystem extends PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       searchValue: null,
       selectedTagInfo: [],
@@ -96,6 +96,28 @@ class SubSystem extends PureComponent {
         </Menu.Item>
       </Menu>
     );
+    const sysItems = [
+      { title: '实时数据采集机构', value: '100%', id: '1' },
+      { title: '武汉市协和医院', value: '100%', id: '2' },
+      { title: '武汉市同济医院', value: '100%', id: '3' },
+      { title: '武汉市口腔医院', value: '100%', id: '4' },
+      { title: 'XXXXX医院', value: '100%', id: '5' },
+      { title: 'XXXXX医院', value: '100%', id: '6' },
+      { title: 'XXXXX医院', value: '60%', id: '7' },
+      { title: 'XXXXX医院', value: '60%', id: '8' },
+      { title: 'XXXXX医院', value: '60%', id: '9' },
+      { title: 'XXXXX医院', value: '60%', id: '10' },
+      { title: 'XXXXX医院', value: '60%', id: '11' },
+      { title: 'XXXXX医院', value: '60%', id: '12' },
+      { title: 'XXXXX医院', value: '60%', id: '13' },
+      { title: 'XXXXX医院', value: '60%', id: '14' },
+      { title: 'XXXXX医院', value: '60%', id: '15' },
+      { title: 'XXXXX医院', value: '60%', id: '16' },
+      { title: 'XXXXX医院', value: '20%', id: '17' },
+      { title: 'XXXXX医院', value: '20%', id: '18' },
+      { title: 'XXXXX医院', value: '20%', id: '19' },
+      { title: 'XXXXX医院', value: '20%', id: '20' }
+    ];
     return (
       <Layout>
         <Header>
@@ -169,7 +191,7 @@ class SubSystem extends PureComponent {
                       src={"https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"}
                       alt="avatar"
                     />
-                    <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{'admin管理员'}</span>
+                    <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{'root'}</span>
                   </span>
                 </Dropdown>
               </div>
@@ -180,152 +202,30 @@ class SubSystem extends PureComponent {
           <div style={{ padding: '16px 24px' }}>
             <div style={{ padding: '16px 24px', background: '#ffffff' }}>
               <Card bordered={false}>
-                {/* <Row type="flex" justify="space-around" align="middle"> */}
                 <Row type="flex" align="middle">
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg100'} onClick={() => this.props.history.push({ pathname: '/settlementYB/jsList' })}>
-                      <div>
-                        <p>100%</p>
-                        <p>实时数据采集机构</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg100'} onClick={() => this.props.history.push({ pathname: '/home' })}>
-                      <div>
-                        <p>100%</p>
-                        <p>武汉市协和医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg100'} onClick={() => this.props.history.push({ pathname: '/home' })}>
-                      <div>
-                        <p>100%</p>
-                        <p>武汉市同济医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg100'} onClick={() => this.props.history.push({ pathname: '/home' })}>
-                      <div>
-                        <p>100%</p>
-                        <p>武汉市口腔医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg100'}>
-                      <div>
-                        <p>100%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg100'}>
-                      <div>
-                        <p>100%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg60'}>
-                      <div>
-                        <p>60%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg20'}>
-                      <div>
-                        <p>20%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg20'}>
-                      <div>
-                        <p>20%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col {...colSpan}>
-                    <div className={'matter-card matter-card-bg20'}>
-                      <div>
-                        <p>20%</p>
-                        <p>XXXXX医院</p>
-                      </div>
-                    </div>
-                  </Col>
+                  {
+                    sysItems.map((item, index) => {
+                      return (
+                        <Col {...colSpan} key={index}>
+                          <div
+                            className={`matter-card ${item.value === '100%' ? 'matter-card-bg100' : item.value === '60%' ? 'matter-card-bg60' : 'matter-card-bg20'}`}
+                            onClick={() => {
+                              if (item.title === '实时数据采集机构') {
+                                this.props.history.push({ pathname: '/settlementYB/jsList' });
+                              } else {
+                                this.props.history.push({ pathname: '/home' });
+                              }
+                            }}
+                          >
+                            <div>
+                              <p>{item.value}</p>
+                              <p>{item.title}</p>
+                            </div>
+                          </div>
+                        </Col>
+                      )
+                    })
+                  }
                 </Row>
               </Card>
             </div>

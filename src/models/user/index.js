@@ -10,45 +10,17 @@ export default {
     systemList: [],
     currentUser: {},
     menuAllList: [], // 当前用户的所有系统与菜单
+    sysRoles: [],
+    sysDepts: []
   },
 
   effects: {
-    // *fetch(_, { call, put }) {
-    //   const response = yield call(queryUsers);
-    //   yield put({
-    //     type: 'save',
-    //     payload: response,
-    //   });
-    // },
-    // *fetchCurrent(_, { call, put }) {
-    //   const response = yield call(queryCurrent);
-    //   yield put({
-    //     type: 'saveCurrentUser',
-    //     payload: response,
-    //   });
-    // },
-    // *userLogin({ payload, callback }, { put }) {
-    //   const { userName, password } = payload;
-    //   let flag = true;
-    //   if (userName === 'admin' && password === 'admin') {
-    //     yield put({
-    //       type: 'saveCurrentUser',
-    //       payload
-    //     })
-    //   } else {
-    //     flag = false;
-    //   }
-    //   setTimeout(() => {
-    //     if (callback) callback(flag)
-    //   }, 1000)
-    // },
     *userLogin({ payload, callback }, { call, put }) {
       const response = yield call(userService.userLogin, payload);
       console.log(response);
       if (callback) callback(response)
     },
 
-    
     *register({ payload, callback, _ }, { call, put }) {
       const response = yield call(register, payload)
       let flag = response ? true : false;
@@ -65,10 +37,13 @@ export default {
         list: action.payload,
       };
     },
+    // 存储当前用户信息, 菜单信息, 系统信息
     saveCurrentUser(state, action) {
       return {
         ...state,
-        currentUser: action.payload || {},
+        currentUser: action.payload.userInfo || {},
+        sysRoles: action.payload.sysRoles || [],
+        sysDepts: action.payload.sysDepts || []
       };
     },
     changeNotifyCount(state, action) {

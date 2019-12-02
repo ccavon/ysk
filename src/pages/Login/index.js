@@ -2,17 +2,16 @@
  * @Author: wwb 
  * @Date: 2018-12-14 14:46:27 
  * @Last Modified by: chengyafang
- * @Last Modified time: 2019-11-28 09:42:17
+ * @Last Modified time: 2019-12-02 16:15:58
  */
 import React, { PureComponent } from 'react';
-import { Form, Icon, Input, Button, Checkbox, message, Tooltip } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { connect } from 'dva';
 import { settingConfig } from '@/config/setting.config';
 import { userLocal } from '@/api/_local';
 import { formatMessage } from '@/utils';
-import md5 from 'md5';
 import { users } from '@/api/user';
-import querystring from 'querystring';
+// import md5 from 'md5';
 import './style.less';
 
 const FormItem = Form.Item;
@@ -31,11 +30,7 @@ class LoginForm extends PureComponent {
     super(props);
     this.isYsk = userLocal.includes(':8081');
     this.state = {
-      failCount: 0,
       loading: false,
-      src: '',
-      code: '',
-      count: 0,
       type: 'account',
       loginSessionId: '', //登录会话ID
     }
@@ -47,11 +42,6 @@ class LoginForm extends PureComponent {
 
   componentDidMount() {
     document.title = '华信卫健';
-    if (this.isYsk) {
-      this.codeChange();
-    } else {
-      return;
-    }
     this.setAccount();
     const { state } = this.props.location;
     if (state && state.form) {
@@ -74,73 +64,75 @@ class LoginForm extends PureComponent {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        let { loginName, pwd } = values;
-        // const { dispatch, history } = this.props;
-        if (pwd !== Cookies.get('pwd')) {
-          pwd = md5(pwd);
-        }
+        let { loginName, pwd, remember } = values;
+        const { dispatch, history } = this.props;
+        console.log('Cookies:', Cookies.get('pwd'));
+        // if (pwd !== Cookies.get('pwd')) {
+        //   pwd = md5(pwd);
+        // }
         this.setState({ loading: true });
-        let postData = { loginName, pwd }
+        let postData = { loginName, pwd };
         fetch(users.LOGIN, {
           method: 'post',
           mode: 'cors',
           credentials: 'include',
           headers: {
             'JSESSIONID': this.state.loginSessionId,
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
           },
-          body: querystring.stringify(postData)
+          body: JSON.stringify(postData)
         }).then(response => {
           if (!this.isYsk) {
             this.setState({ loginSessionId: response.headers.get('JSESSIONID') });
           }
           return response.json();
-        }).then(async data => {
-          console.log(data, '11111');
+        }).then(async result => {
+          console.log(result, '11111');
+          if (result.code === 200) {
+            localStorage.setItem('JSESSIONID', result.data.sessionId);
+            sessionStorage.setItem('login', true);
+            message.success(result.msg || '登录成功');
+            if (remember) {
+              Cookies.set('loginName', loginName, { expires: 7 });
+              Cookies.set('pwd', pwd, { expires: 7 });
+            } else {
+              Cookies.remove('loginName');
+              Cookies.remove('pwd');
+            }
+            let { sysRoles, sysDepts, ...userInfo } = result.data;
+            // 1. 存储用户信息
+            dispatch({
+              type: 'user/saveCurrentUser',
+              payload: {
+                sysRoles,
+                sysDepts,
+                userInfo
+              }
+            });
+            // 2. 如果当前子系统没有菜单数据 则进入到页面
+            history.push({
+              pathname: result.data.sessionId ? '/subSystem' : '/exception/500' // 如果后面有动态菜单条件改成菜单有关的
+            });
+          }
+        }).catch(err => {
+          this.setState({ loading: false });
+          message.error('登录失败');
         });
-
-
-
-        // dispatch({
-        //   type: 'user/userLogin',
-        //   payload: postData,
-        //   callback: (flag) => {
-        //     if (flag) {
-        //       message.success('登陆成功');
-        //       history.push({ pathname: '/subSystem' });
-        //     } else {
-        //       message.error('账号密码错误')
-        //     }
-        //     this.setState({ loading: false });
-        //   }
-        // });
       }
-    })
-  }
-
-
-
-  codeChange = () => {
-
+    });
   }
 
   render() {
     const NODE_ENV = settingConfig().type === 'dev';
     const { getFieldDecorator } = this.props.form;
-    const { failCount } = this.state;
-    let logoStyle = {},
-      backgroundStyle = {
-        width: '62%'
-      };
+    let logoStyle = {}; // 用来存放从后台获取logo图路劲 比如：logoStyle.backgroundImage = `url(${logoUrl})`;
     return (
       <div className={'container'}>
-        <div className={'side-content'} style={backgroundStyle}></div>
+        <div className={'side-content'} style={{ width: '62%' }}></div>
         <div className={'main-content'} style={{ width: '38%' }}>
           <div className={'top_logo'} style={{ paddingTop: NODE_ENV ? 120 : 165 }}>
             {
-              NODE_ENV
-              &&
-              <div className='logo' style={logoStyle}></div>
+              NODE_ENV && <div className='logo' style={logoStyle}></div>
             }
           </div>
           <Form onSubmit={this.handleSubmit}>
@@ -150,7 +142,7 @@ class LoginForm extends PureComponent {
                   initialValue: '',
                   rules: [{ required: true, message: '请输入用户名!' }],
                 })(
-                  <Input prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,0.25)' }} />} placeholder='用户名' />
+                  <Input prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,0.25)' }} />} placeholder='用户名：root' />
                 )
               }
             </FormItem>
@@ -160,74 +152,24 @@ class LoginForm extends PureComponent {
                   initialValue: '',
                   rules: [{ required: true, message: '请输入密码!' }],
                 })(
-                  <Input
-                    type="password"
-                    prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,0.25)' }} />}
-                    placeholder='密码'
-                  />
+                  <Input type="password" prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,0.25)' }} />} placeholder='密码：root' />
                 )
               }
             </FormItem>
-            {
-              ((!this.isJxh && failCount >= 5) || this.isJxh) &&
-              <FormItem {...wrapperLayout}>
-                {
-                  getFieldDecorator('imageCode', {
-                    validateTrigger: ['onBlur'],
-                    rules: [{
-                      validator: (rule, value, cb) => {
-                        if (typeof value !== 'undefined' && value.length === 4) {
-                          cb();
-                        } else {
-                          cb('验证码不正确');
-                        }
-                      }
-                    }],
-                  })(
-                    <Input
-                      style={{ width: '60%' }}
-                      prefix={
-                        <Icon type="mail" style={{ color: 'rgba(0,0,0,0.25)' }} />
-                      }
-                      placeholder="验证码"
-                    />
-                  )
-                }
-                <Tooltip title={'点我切换验证码'} placement={'top'}>
-                  <img
-                    alt='介里是验证码'
-                    id='img'
-                    style={{
-                      float: 'right',
-                      border: '1px solid'
-                    }}
-                    src={this.state.src}
-                    onClick={this.codeChange}
-                  />
-                </Tooltip>
-              </FormItem>
-            }
             <FormItem {...wrapperLayout}>
               {
                 getFieldDecorator('remember', {
                   valuePropName: 'checked',
-                  initialValue: Boolean(Cookies.get('loginNo')),
+                  initialValue: Boolean(Cookies.get('loginName')),
                 })(
                   <Checkbox>记住用户名和密码</Checkbox>
                 )
               }
             </FormItem>
             <FormItem {...wrapperLayout}>
-              {/* <Link to='/handle/register' style={{ float: 'right' }}>注册</Link> */}
               <Button type="primary" htmlType="submit" style={{ width: '100%' }} loading={this.state.loading}>
                 登录
               </Button>
-              {/* <Button type='danger' onClick={() => {
-                sessionStorage.setItem('login', true);
-                this.props.history.push('/home')
-              }}>
-                点击这个按钮模拟登录凑合一下
-              </Button> */}
             </FormItem>
           </Form>
         </div>

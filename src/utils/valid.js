@@ -6,19 +6,19 @@
 */
 export const validNumber = (rule, value, callback) => {
   //let num = Number(value);
-  console.log(rule,'rule') 
-  if(!rule.max){rule.max = 100000000 }
-  if(!rule.min){rule.min = 0 }
-  if (!value || /^\d+$/.test(value) ||  /(^\d+\.\d{1}$)/.test(value) || /(^\d+\.\d{2}$)/.test(value)) {
-    if (value > rule.max ) {
-      callback(new Error(`输入数值过大, 不能大于${rule.max|| '100000000'}`));
-    }if(value <= rule.min){
-      callback(new Error(`输入数值过小, 不能小于等于${rule.min|| '0'}`));
-    }else{
+  console.log(rule, 'rule')
+  if (!rule.max) { rule.max = 100000000 }
+  if (!rule.min) { rule.min = 0 }
+  if (!value || /^\d+$/.test(value) || /(^\d+\.\d{1}$)/.test(value) || /(^\d+\.\d{2}$)/.test(value)) {
+    if (value > rule.max) {
+      callback(new Error(`输入数值过大, 不能大于${rule.max || '100000000'}`));
+    } if (value <= rule.min) {
+      callback(new Error(`输入数值过小, 不能小于等于${rule.min || '0'}`));
+    } else {
       callback();
     }
   } else {
-      callback(new Error('请输入非0正数,最多保留两位小数！'));
+    callback(new Error('请输入非0正数,最多保留两位小数！'));
   }
 }
 
@@ -28,17 +28,17 @@ export const validNumber = (rule, value, callback) => {
  */
 export const IsPosInt = (value) => {
 
-  if (/^\d+$/.test(value) || value===0 || value ==="") {
+  if (/^\d+$/.test(value) || value === 0 || value === "") {
     return true
-  }else{
+  } else {
     return false
   }
 }
 
-export const validPositiveNumber = (rule, value, callback) => { 
-  if( /^\d+$/.test(value) || value===0){
+export const validPositiveNumber = (rule, value, callback) => {
+  if (/^\d+$/.test(value) || value === 0) {
     callback();
-  }else {
+  } else {
     callback(new Error(rule.message || ''));
   }
 }
@@ -57,26 +57,26 @@ export const validPositiveNumber = (rule, value, callback) => {
  * toFixed: 保留小数位数 true 4为小数
  * positive: 正整数 true 默认false
  */
-export const LimitNum = (rule,value,callback) => {
+export const LimitNum = (rule, value, callback) => {
   const { min, max, toFixed, positive } = rule;
-  if (isNaN(Number(value))){
+  if (isNaN(Number(value))) {
     callback(new Error(`请输入数字`))
   }
-  if ( max && value > ( max || 100000000 )) {
-    callback(`输入数值过大, 不能大于${max|| '100000000'}`);
+  if (max && value > (max || 100000000)) {
+    callback(`输入数值过大, 不能大于${max || '100000000'}`);
   }
-  if(min && value < min){
-    callback(new Error(`输入数值过小, 不能小于${min|| '0'}`));
+  if (min && value < min) {
+    callback(new Error(`输入数值过小, 不能小于${min || '0'}`));
   }
   if (positive && !toFixed) {//正整数正则
-    if ( value && !/^\d+$/.test(value)) {
+    if (value && !/^\d+$/.test(value)) {
       callback(new Error(`请输入正整数`));
     }
   }
-  if(toFixed && positive ){//保留小数
-    if ( !value || /(^\d+\.\d{0,4}$)/.test(value) || /^\d+$/.test(value) ) {
+  if (toFixed && positive) {//保留小数
+    if (!value || /(^\d+\.\d{0,4}$)/.test(value) || /^\d+$/.test(value)) {
       callback()
-    }else{
+    } else {
       callback(new Error(`请输入正数，最多保留0-4位小数`));
     }
   }

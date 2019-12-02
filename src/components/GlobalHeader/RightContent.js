@@ -1,30 +1,21 @@
 import React, { PureComponent } from 'react';
 import { connect } from "dva";
 import { NoticeIcon, HeaderSearch } from 'ant-design-pro';
-import { Tooltip, Icon, Tag, Dropdown, Avatar, Spin, Menu, Modal, AutoComplete, message, Row } from 'antd';
+import { Tooltip, Icon, Tag, Dropdown, Avatar, Spin, Menu, AutoComplete, message } from 'antd';
 import { formatMessage } from '@/utils';
 import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 import _ from 'lodash';
 
-const CheckableTag = Tag.CheckableTag;
 const Option = AutoComplete.Option;
 const OptGroup = AutoComplete.OptGroup;
-const systemType = [
-  { key: "1", name: "子系统名称1" },
-  { key: "2", name: "子系统名称2" },
-  { key: "3", name: "子系统名称3" },
-]
 
 @connect(({ global, user, menu }) => ({ menuData: global.menuData, user, menu }))
 class RightContent extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      visible: false,
       searchValue: null,
-      selectedTags: [],
-      selectedTagInfo: [],
       dataSource: [],// real dataSource is  this.props.menuData - filter searchValue
     }
     this.onPressHeaderSearch = _.debounce(this.onPressHeaderSearch, 500)
@@ -161,40 +152,9 @@ class RightContent extends PureComponent {
     }
   }
 
-  changeSystem = () => {
-    console.log('changeSystem')
-    console.log(this.state.selectedTagInfo)
-    console.log(this.state.selectedTags)
-    //此处根据请求来获取对应的menuData 更改全局 global.menuData
-    console.log(this.props.menuData)
-    console.log('change menuDataSource')
-    this.setState({ visible: false })
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'global/fetchMenu',
-      payload: { currentSys: "1" }
-    })
-    console.log(this.props)
-  }
-
-  /* 切换子系统 */
-  handleChange(tag, checked) {
-    const { selectedTags } = this.state;
-    const nextSelectedTags = checked ? [tag.key] : selectedTags.filter(t => t !== tag.key);
-    console.log('You are interested in: ', nextSelectedTags);
-    console.log('You are selectedTagInfo: ', tag);
-    this.setState({ selectedTags: nextSelectedTags, selectedTagInfo: tag });
-  }
-
   render() {
-    const {
-      user: { currentUser },
-      fetchingNotices,
-      onNoticeVisibleChange,
-      // onMenuClick,
-      onNoticeClear,
-      theme,
-    } = this.props;
+    console.log(this);
+    const { user: { currentUser }, fetchingNotices, onNoticeVisibleChange, onNoticeClear, theme, } = this.props;
     let className = 'global-right';
     if (theme === 'dark') {
       className = `global-right dark`;
@@ -221,7 +181,7 @@ class RightContent extends PureComponent {
         </Menu.Item>
       </Menu>
     );
-    const { dataSource, visible, selectedTags } = this.state;
+    const { dataSource } = this.state;
     const options = dataSource.map(group => (
       <OptGroup
         key={group.name}
@@ -304,7 +264,7 @@ class RightContent extends PureComponent {
               emptyImage="https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg"
             />
           </NoticeIcon>
-          {currentUser && currentUser.name ? (
+          {currentUser && currentUser.loginName ? (
             <Dropdown overlay={menu}>
               <span className={`action account`}>
                 <Avatar
@@ -313,35 +273,13 @@ class RightContent extends PureComponent {
                   src={currentUser.avatar}
                   alt="avatar"
                 />
-                <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{currentUser.name}</span>
+                <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{currentUser.loginName}</span>
               </span>
             </Dropdown>
           ) : (
               <Spin size="small" style={{ marginLeft: 8, marginRight: 8 }} />
             )}
         </div>
-
-        <Modal
-          visible={visible}
-          title='子系统切换'
-          onOk={this.changeSystem}
-          onCancel={() => this.setState({ visible: false })}
-        >
-          <Row className={'changeSystemWarpper'}>
-            {
-              systemType.map((item, index) =>
-                <CheckableTag
-                  key={item.key}
-                  info={item}
-                  checked={selectedTags.indexOf(item.key) > -1}
-                  onChange={checked => this.handleChange(item, checked)}
-                >
-                  {item.name}
-                </CheckableTag>
-              )
-            }
-          </Row>
-        </Modal>
       </div>
     )
   }

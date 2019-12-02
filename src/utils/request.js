@@ -81,103 +81,103 @@ export default function request(
     const mock = require('@/mock').default;
     return mock[url] ? mock[url] : { message: codeMessage['404'] }
   } else {
-  /**
-   * Produce fingerprints based on url and parameters
-   * Maybe url has the same parameters
-   */
-  const fingerprint = url + (options.body ? JSON.stringify(options.body) : '');
-  const hashcode = hash
-    .sha256()
-    .update(fingerprint)
-    .digest('hex');
+    /**
+     * Produce fingerprints based on url and parameters
+     * Maybe url has the same parameters
+     */
+    const fingerprint = url + (options.body ? JSON.stringify(options.body) : '');
+    const hashcode = hash
+      .sha256()
+      .update(fingerprint)
+      .digest('hex');
 
-  const defaultOptions = {
-    credentials: 'include',
-  };
-  const newOptions = { ...defaultOptions, ...options };
-  const jessionid = localStorage.getItem('JSESSIONID');
-  const headers = {
-    'JSESSIONID': jessionid,
-    'Access-Control-Max-Age': 1728000,
-    ...newOptions.headers
-  }
-  window.Cookies.set('JSESSIONID', jessionid);
-  if(newOptions.type !== 'formData'){
-    newOptions.headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      ...headers,
+    const defaultOptions = {
+      credentials: 'include',
     };
-    // newOptions.body = newOptions.body;
-  } else {
-    // newOptions.body is FormData
-    newOptions.headers = {
-      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-      ...headers
-    };
-  }
-  if (
-    newOptions.method === 'POST' ||
-    newOptions.method === 'PUT' ||
-    newOptions.method === 'DELETE'
-  ){
-    newOptions.body = newOptions.type==="formData" ? querystring.stringify(newOptions.body) : JSON.stringify(newOptions.body);
-  } 
+    const newOptions = { ...defaultOptions, ...options };
+    const jessionid = localStorage.getItem('JSESSIONID');
+    const headers = {
+      'JSESSIONID': jessionid,
+      'Access-Control-Max-Age': 1728000,
+      ...newOptions.headers
+    }
+    window.Cookies.set('JSESSIONID', jessionid);
+    if (newOptions.type !== 'formData') {
+      newOptions.headers = {
+        'Content-Type': 'application/json; charset=utf-8',
+        ...headers,
+      };
+      // newOptions.body = newOptions.body;
+    } else {
+      // newOptions.body is FormData
+      newOptions.headers = {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+        ...headers
+      };
+    }
+    if (
+      newOptions.method === 'POST' ||
+      newOptions.method === 'PUT' ||
+      newOptions.method === 'DELETE'
+    ) {
+      newOptions.body = newOptions.type === "formData" ? querystring.stringify(newOptions.body) : JSON.stringify(newOptions.body);
+    }
 
-  if(newOptions.method === 'GET' || newOptions.method === 'get'){
+    if (newOptions.method === 'GET' || newOptions.method === 'get') {
       url = newOptions.type ? `${url}?${querystring.stringify(newOptions.body)}` : '';
       delete newOptions.body;
-  };
-  const expirys = options.expirys && 60;
-  // options.expirys !== false, return the cache,
-  if (options.expirys !== false) {
-    const cached = sessionStorage.getItem(hashcode);
-    const whenCached = sessionStorage.getItem(`${hashcode}:timestamp`);
-    if (cached !== null && whenCached !== null) {
-      const age = (Date.now() - whenCached) / 1000;
-      if (age < expirys) {
-        const response = new Response(new Blob([cached]));
-        return response.json();
+    };
+    const expirys = options.expirys && 60;
+    // options.expirys !== false, return the cache,
+    if (options.expirys !== false) {
+      const cached = sessionStorage.getItem(hashcode);
+      const whenCached = sessionStorage.getItem(`${hashcode}:timestamp`);
+      if (cached !== null && whenCached !== null) {
+        const age = (Date.now() - whenCached) / 1000;
+        if (age < expirys) {
+          const response = new Response(new Blob([cached]));
+          return response.json();
+        }
+        sessionStorage.removeItem(hashcode);
+        sessionStorage.removeItem(`${hashcode}:timestamp`);
       }
-      sessionStorage.removeItem(hashcode);
-      sessionStorage.removeItem(`${hashcode}:timestamp`);
     }
-  }
-  NProgress.start();
-  return fetch(url, newOptions)
-    .then(checkStatus)
-    .then(response => cachedSave(response, hashcode))
-    .then(response => {
-      // DELETE and 204 do not return data by default
-      // using .json will report an error.
-      NProgress.done();
-      if (newOptions.method === 'DELETE' || response.status === 204) {
-        return response.text();
-      }
-      return response.json();
-    })
-    .catch(e => {
-      NProgress.done();
-      const status = e.name;
-      if (status === 401) {
-        // @HACK
-        /* eslint-disable no-underscore-dangle */
-        window.g_app._store.dispatch({
-          type: 'login/logout',
-        });
-        return;
-      }
-      // environment should not be used
-      if (status === 403) {
-        history.push('/exception/403');
-        return;
-      }
-      if (status <= 504 && status >= 500) {
-        history.push('/exception/500');
-        return;
-      }
-      if (status >= 404 && status < 422) {
-        history.push('/exception/404');
-      }
-    });
+    NProgress.start();
+    return fetch(url, newOptions)
+      .then(checkStatus)
+      .then(response => cachedSave(response, hashcode))
+      .then(response => {
+        // DELETE and 204 do not return data by default
+        // using .json will report an error.
+        NProgress.done();
+        if (newOptions.method === 'DELETE' || response.status === 204) {
+          return response.text();
+        }
+        return response.json();
+      })
+      .catch(e => {
+        NProgress.done();
+        const status = e.name;
+        if (status === 401) {
+          // @HACK
+          /* eslint-disable no-underscore-dangle */
+          window.g_app._store.dispatch({
+            type: 'login/logout',
+          });
+          return;
+        }
+        // environment should not be used
+        if (status === 403) {
+          history.push('/exception/403');
+          return;
+        }
+        if (status <= 504 && status >= 500) {
+          history.push('/exception/500');
+          return;
+        }
+        if (status >= 404 && status < 422) {
+          history.push('/exception/404');
+        }
+      });
   }
 }
