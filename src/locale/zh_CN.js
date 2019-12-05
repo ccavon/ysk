@@ -88,6 +88,7 @@ export default {
   'menu.areaMgt': '区域管理',
   'menu.orgMgt': '机构管理',
   'menu.deptMgt': '部门管理',
+  'menu.roleMgt': '角色管理',
 
   /* 
     全局样式

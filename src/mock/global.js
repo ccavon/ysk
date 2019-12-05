@@ -24,6 +24,9 @@ export default {
         },
         {
           path: '/system/deptMgt', name: '部门管理'
+        },
+        {
+          path: '/system/roleMgt', name: '角色管理'
         }
       ]
     },

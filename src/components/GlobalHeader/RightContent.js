@@ -153,7 +153,6 @@ class RightContent extends PureComponent {
   }
 
   render() {
-    console.log(this);
     const { user: { currentUser }, fetchingNotices, onNoticeVisibleChange, onNoticeClear, theme, } = this.props;
     let className = 'global-right';
     if (theme === 'dark') {

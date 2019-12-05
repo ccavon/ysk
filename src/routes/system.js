@@ -2,7 +2,7 @@
  * @Author: chengyafang 
  * @Date: 2019-11-25 09:41:13 
  * @Last Modified by: chengyafang
- * @Last Modified time: 2019-11-26 16:31:07
+ * @Last Modified time: 2019-12-02 17:16:56
  * @File 系统管理
  */
 
@@ -33,6 +33,13 @@ export const System = [
     key: 'deptMgt',
     path: '/system/deptMgt',
     component: () => import('@/pages/System/DeptMgt'),
+    models: []
+  },
+  {
+    name: '角色管理',
+    key: 'roleMgt',
+    path: '/system/roleMgt',
+    component: () => import('@/pages/System/RoleMgt'),
     models: []
   }
 ];
