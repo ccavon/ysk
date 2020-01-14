@@ -2,7 +2,7 @@
  * @Author: chengyafang 
  * @Date: 2019-11-25 09:41:13 
  * @Last Modified by: chengyafang
- * @Last Modified time: 2019-12-02 17:16:56
+ * @Last Modified time: 2019-12-05 14:56:59
  * @File 系统管理
  */
 
@@ -40,6 +40,13 @@ export const System = [
     key: 'roleMgt',
     path: '/system/roleMgt',
     component: () => import('@/pages/System/RoleMgt'),
+    models: []
+  },
+  {
+    name: '资源管理',
+    key: 'resourceMgt',
+    path: '/system/resourceMgt',
+    component: () => import('@/pages/System/ResourceMgt'),
     models: []
   }
 ];

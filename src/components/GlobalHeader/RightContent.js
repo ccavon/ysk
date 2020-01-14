@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from "dva";
 import { NoticeIcon, HeaderSearch } from 'ant-design-pro';
-import { Tooltip, Icon, Tag, Dropdown, Avatar, Spin, Menu, AutoComplete, message } from 'antd';
+import { Tooltip, Icon, Tag, Dropdown, Avatar, Menu, AutoComplete, message } from 'antd';
 import { formatMessage } from '@/utils';
 import moment from 'moment';
 import groupBy from 'lodash/groupBy';
@@ -263,7 +263,7 @@ class RightContent extends PureComponent {
               emptyImage="https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg"
             />
           </NoticeIcon>
-          {currentUser && currentUser.loginName ? (
+          {/* {currentUser && currentUser.loginName ? ( */}
             <Dropdown overlay={menu}>
               <span className={`action account`}>
                 <Avatar
@@ -272,12 +272,13 @@ class RightContent extends PureComponent {
                   src={currentUser.avatar}
                   alt="avatar"
                 />
-                <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{currentUser.loginName}</span>
+                {/* <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{currentUser.loginName}</span> */}
+                <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{'admin管理员'}</span>
               </span>
             </Dropdown>
-          ) : (
+          {/* ) : (
               <Spin size="small" style={{ marginLeft: 8, marginRight: 8 }} />
-            )}
+            )} */}
         </div>
       </div>
     )

@@ -27,6 +27,9 @@ export default {
         },
         {
           path: '/system/roleMgt', name: '角色管理'
+        },
+        {
+          path: '/system/resourceMgt', name: '资源管理'
         }
       ]
     },
@@ -83,6 +86,13 @@ export default {
         {
           path: '/basicSettings/verificationRule', name: '验证规则'
         }
+      ]
+    },
+    {
+      path: '/chartList', name: '图表应用', icon: 'appstore', children: [
+        {
+          path: '/chartList/quadrantPlot', name: '四维象限图'
+        },
       ]
     }
   ],

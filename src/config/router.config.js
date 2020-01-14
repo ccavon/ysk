@@ -6,6 +6,7 @@ import { QualityInspection } from '../routes/qualityInspection';
 import { BasicSettings } from '../routes/basicSettings';
 import { SettlementYB } from '../routes/settlementYB';
 import { MonitoringReport } from "../routes/monitoringReport";
+import { ChartList } from "../routes/chartList";
 
 // wrapper of dynamic
 const dynamicWrapper = (app, models, component) => dynamic({
@@ -74,7 +75,8 @@ export const getNavData = app => [
       ...genRouter(QualityInspection, app),
       ...genRouter(BasicSettings, app),
       ...genRouter(SettlementYB, app),
-      ...genRouter(MonitoringReport, app)
+      ...genRouter(MonitoringReport, app),
+      ...genRouter(ChartList, app)
     ]
   },
   {

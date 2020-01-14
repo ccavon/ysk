@@ -3,7 +3,7 @@ import * as Global from '@/services/global';
 export default {
   namespace: 'global',
   state: {
-    collapsed: true,
+    collapsed: false,
     notices: [],
     menuData: [],
     openMenu: [],

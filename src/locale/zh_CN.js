@@ -89,6 +89,9 @@ export default {
   'menu.orgMgt': '机构管理',
   'menu.deptMgt': '部门管理',
   'menu.roleMgt': '角色管理',
+  'menu.resourceMgt': '资源管理',
+  'menu.chartList': '图表应用',
+  'menu.quadrantPlot': '四维象限图',
 
   /* 
     全局样式

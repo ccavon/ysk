@@ -2,7 +2,7 @@
  * @Author: chengyafang 
  * @Date: 2019-10-25 14:55:59 
  * @Last Modified by: chengyafang
- * @Last Modified time: 2019-12-02 16:12:14
+ * @Last Modified time: 2020-01-08 17:21:14
  * @File 子系统切换
  * @description 当登录成功时进入-->此时需要进行医疗机构选择
  */
@@ -191,7 +191,7 @@ class SubSystem extends PureComponent {
                       src={"https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"}
                       alt="avatar"
                     />
-                    <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{'root'}</span>
+                    <span className={`name ${theme === 'dark' ? 'light' : ''}`}>{'admin管理员'}</span>
                   </span>
                 </Dropdown>
               </div>

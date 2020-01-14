@@ -2,7 +2,7 @@
  * @Author: wwb 
  * @Date: 2018-12-14 14:46:27 
  * @Last Modified by: chengyafang
- * @Last Modified time: 2019-12-02 16:15:58
+ * @Last Modified time: 2020-01-08 17:19:42
  */
 import React, { PureComponent } from 'react';
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
@@ -10,7 +10,7 @@ import { connect } from 'dva';
 import { settingConfig } from '@/config/setting.config';
 import { userLocal } from '@/api/_local';
 import { formatMessage } from '@/utils';
-import { users } from '@/api/user';
+// import { users } from '@/api/user';
 // import md5 from 'md5';
 import './style.less';
 
@@ -64,63 +64,90 @@ class LoginForm extends PureComponent {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        let { loginName, pwd, remember } = values;
+        let { loginName, pwd } = values;
+        let jsonData = {
+          userName: loginName,
+          password: pwd
+        };
         const { dispatch, history } = this.props;
-        console.log('Cookies:', Cookies.get('pwd'));
-        // if (pwd !== Cookies.get('pwd')) {
-        //   pwd = md5(pwd);
-        // }
-        this.setState({ loading: true });
-        let postData = { loginName, pwd };
-        fetch(users.LOGIN, {
-          method: 'post',
-          mode: 'cors',
-          credentials: 'include',
-          headers: {
-            'JSESSIONID': this.state.loginSessionId,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(postData)
-        }).then(response => {
-          if (!this.isYsk) {
-            this.setState({ loginSessionId: response.headers.get('JSESSIONID') });
-          }
-          return response.json();
-        }).then(async result => {
-          console.log(result, '11111');
-          if (result.code === 200) {
-            localStorage.setItem('JSESSIONID', result.data.sessionId);
-            sessionStorage.setItem('login', true);
-            message.success(result.msg || '登录成功');
-            if (remember) {
-              Cookies.set('loginName', loginName, { expires: 7 });
-              Cookies.set('pwd', pwd, { expires: 7 });
+        dispatch({
+          type: 'user/userLogin',
+          payload: { ...jsonData },
+          callback: (flag) => {
+            if (flag) {
+              message.success('登陆成功');
+              history.push({ pathname: '/subSystem' });
             } else {
-              Cookies.remove('loginName');
-              Cookies.remove('pwd');
+              message.error('账号密码错误')
             }
-            let { sysRoles, sysDepts, ...userInfo } = result.data;
-            // 1. 存储用户信息
-            dispatch({
-              type: 'user/saveCurrentUser',
-              payload: {
-                sysRoles,
-                sysDepts,
-                userInfo
-              }
-            });
-            // 2. 如果当前子系统没有菜单数据 则进入到页面
-            history.push({
-              pathname: result.data.sessionId ? '/subSystem' : '/exception/500' // 如果后面有动态菜单条件改成菜单有关的
-            });
+            this.setState({ loading: false });
           }
-        }).catch(err => {
-          this.setState({ loading: false });
-          message.error('登录失败');
         });
       }
     });
   }
+
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.props.form.validateFields((err, values) => {
+  //     if (!err) {
+  //       let { loginName, pwd, remember } = values;
+  //       const { dispatch, history } = this.props;
+  //       console.log('Cookies:', Cookies.get('pwd'));
+  //       // if (pwd !== Cookies.get('pwd')) {
+  //       //   pwd = md5(pwd);
+  //       // }
+  //       this.setState({ loading: true });
+  //       let postData = { loginName, pwd };
+  //       fetch(users.LOGIN, {
+  //         method: 'post',
+  //         mode: 'cors',
+  //         credentials: 'include',
+  //         headers: {
+  //           'JSESSIONID': this.state.loginSessionId,
+  //           'Content-Type': 'application/json'
+  //         },
+  //         body: JSON.stringify(postData)
+  //       }).then(response => {
+  //         if (!this.isYsk) {
+  //           this.setState({ loginSessionId: response.headers.get('JSESSIONID') });
+  //         }
+  //         return response.json();
+  //       }).then(async result => {
+  //         console.log(result, '11111');
+  //         if (result.code === 200) {
+  //           localStorage.setItem('JSESSIONID', result.data.sessionId);
+  //           sessionStorage.setItem('login', true);
+  //           message.success(result.msg || '登录成功');
+  //           if (remember) {
+  //             Cookies.set('loginName', loginName, { expires: 7 });
+  //             Cookies.set('pwd', pwd, { expires: 7 });
+  //           } else {
+  //             Cookies.remove('loginName');
+  //             Cookies.remove('pwd');
+  //           }
+  //           let { sysRoles, sysDepts, ...userInfo } = result.data;
+  //           // 1. 存储用户信息
+  //           dispatch({
+  //             type: 'user/saveCurrentUser',
+  //             payload: {
+  //               sysRoles,
+  //               sysDepts,
+  //               userInfo
+  //             }
+  //           });
+  //           // 2. 如果当前子系统没有菜单数据 则进入到页面
+  //           history.push({
+  //             pathname: result.data.sessionId ? '/subSystem' : '/exception/500' // 如果后面有动态菜单条件改成菜单有关的
+  //           });
+  //         }
+  //       }).catch(err => {
+  //         this.setState({ loading: false });
+  //         message.error('登录失败');
+  //       });
+  //     }
+  //   });
+  // }
 
   render() {
     const NODE_ENV = settingConfig().type === 'dev';
@@ -139,20 +166,20 @@ class LoginForm extends PureComponent {
             <FormItem {...wrapperLayout}>
               {
                 getFieldDecorator(`loginName`, {
-                  initialValue: '',
+                  initialValue: 'admin',
                   rules: [{ required: true, message: '请输入用户名!' }],
                 })(
-                  <Input prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,0.25)' }} />} placeholder='用户名：root' />
+                  <Input prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,0.25)' }} />} placeholder='用户名' />
                 )
               }
             </FormItem>
             <FormItem {...wrapperLayout}>
               {
                 getFieldDecorator(`pwd`, {
-                  initialValue: '',
+                  initialValue: 'admin',
                   rules: [{ required: true, message: '请输入密码!' }],
                 })(
-                  <Input type="password" prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,0.25)' }} />} placeholder='密码：root' />
+                  <Input type="password" prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,0.25)' }} />} placeholder='密码' />
                 )
               }
             </FormItem>
