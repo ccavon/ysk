@@ -15,8 +15,7 @@ import Footer from './Footer';
 import Context from './MenuContext';
 import SiderMenu from '@/components/SiderMenu';
 import SettingDrawer from '@/components/SettingDrawer';
-// import logo from '@/assets/logo.jpg';
-import logoMini from '@/assets/logo.min.jpg';
+import logoMini from '@/assets/logo.min.png';
 import { formatMessage } from '@/utils';
 import { query } from './_utils';
 
